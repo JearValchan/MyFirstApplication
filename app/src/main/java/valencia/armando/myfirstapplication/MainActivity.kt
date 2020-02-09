@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         up.setOnClickListener{
+            base = num
             if (((tope - base) == 1)){
                 label.setText("Ya adiviné!")
                 up.isEnabled = false
@@ -46,7 +47,6 @@ class MainActivity : AppCompatActivity() {
                 down.isEnabled = false
                 down.visibility = android.view.View.INVISIBLE
             }else{
-                base = num+1
                 numAnterior = num
                 num = Random.nextInt(base, tope)
                 if (num == numAnterior) num = Random.nextInt(base, tope) else label.setText(""+num+"")
@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         down.setOnClickListener{
+            tope = num
             if (((tope - base) == 1)){
                 label.setText("Ya adiviné!")
                 up.isEnabled = false
@@ -61,7 +62,6 @@ class MainActivity : AppCompatActivity() {
                 down.isEnabled = false
                 down.visibility = android.view.View.INVISIBLE
             }else{
-                tope = num-1
                 numAnterior = num
                 num = Random.nextInt(base, tope)
                 if (num == numAnterior) num = Random.nextInt(base, tope) else label.setText(""+num+"")
